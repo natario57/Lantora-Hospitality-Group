@@ -35,21 +35,21 @@
         "description": "[One line describing the room and its atmosphere.]",
         "seated": "[##]",
         "reception": "[##]",
-        "image": null
+        "image": "/images/15-celebration-table.jpg"
       }
     ],
     "tone": "#BFAA8E",
     "images": {
-      "hero": null,
-      "card": null,
-      "interior": null,
-      "dish": null,
-      "detail": null,
+      "hero": "/images/05-concept-01-restaurant-interior.jpg",
+      "card": "/images/05-concept-01-restaurant-interior.jpg",
+      "interior": "/images/09-evening-dining-room-lamps.jpg",
+      "dish": "/images/10-plated-dish.jpg",
+      "detail": "/images/12-wine-glass-napkin.jpg",
       "gallery": [
-        null,
-        null,
-        null,
-        null
+        "/images/11-table-setting.jpg",
+        "/images/13-brunch-coffee-pastries.jpg",
+        "/images/20-kitchen-plating.jpg",
+        "/images/21-wine-display.jpg"
       ]
     }
   },
@@ -89,21 +89,21 @@
         "description": "[One line describing the room and its atmosphere.]",
         "seated": "[##]",
         "reception": "[##]",
-        "image": null
+        "image": "/images/09-evening-dining-room-lamps.jpg"
       }
     ],
     "tone": "#A8937A",
     "images": {
-      "hero": null,
-      "card": null,
-      "interior": null,
-      "dish": null,
-      "detail": null,
+      "hero": "/images/06-concept-02-bar.jpg",
+      "card": "/images/06-concept-02-bar.jpg",
+      "interior": "/images/04-hero-cocktail-bar.jpg",
+      "dish": "/images/20-kitchen-plating.jpg",
+      "detail": "/images/21-wine-display.jpg",
       "gallery": [
-        null,
-        null,
-        null,
-        null
+        "/images/19-service-bartender.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/09-evening-dining-room-lamps.jpg"
       ]
     }
   },
@@ -143,21 +143,21 @@
         "description": "[One line describing the room and its atmosphere.]",
         "seated": "[##]",
         "reception": "[##]",
-        "image": null
+        "image": "/images/18-holiday-table.jpg"
       }
     ],
     "tone": "#D6C6AE",
     "images": {
-      "hero": null,
-      "card": null,
-      "interior": null,
-      "dish": null,
-      "detail": null,
+      "hero": "/images/07-concept-03-cafe.jpg",
+      "card": "/images/07-concept-03-cafe.jpg",
+      "interior": "/images/03-hero-brunch-table.jpg",
+      "dish": "/images/13-brunch-coffee-pastries.jpg",
+      "detail": "/images/11-table-setting.jpg",
       "gallery": [
-        null,
-        null,
-        null,
-        null
+        "/images/18-holiday-table.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/20-kitchen-plating.jpg"
       ]
     }
   },
@@ -197,21 +197,21 @@
         "description": "[One line describing the room and its atmosphere.]",
         "seated": "[##]",
         "reception": "[##]",
-        "image": null
+        "image": "/images/14-private-dining-long-table.jpg"
       }
     ],
     "tone": "#C9B69C",
     "images": {
-      "hero": null,
-      "card": null,
-      "interior": null,
-      "dish": null,
-      "detail": null,
+      "hero": "/images/08-dining-room-city-view.jpg",
+      "card": "/images/08-dining-room-city-view.jpg",
+      "interior": "/images/09-evening-dining-room-lamps.jpg",
+      "dish": "/images/10-plated-dish.jpg",
+      "detail": "/images/21-wine-display.jpg",
       "gallery": [
-        null,
-        null,
-        null,
-        null
+        "/images/11-table-setting.jpg",
+        "/images/19-service-bartender.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/13-brunch-coffee-pastries.jpg"
       ]
     }
   },
@@ -251,21 +251,21 @@
         "description": "[One line describing the room and its atmosphere.]",
         "seated": "[##]",
         "reception": "[##]",
-        "image": null
+        "image": "/images/17-group-dinner.jpg"
       }
     ],
     "tone": "#8C7A66",
     "images": {
-      "hero": null,
-      "card": null,
-      "interior": null,
-      "dish": null,
-      "detail": null,
+      "hero": "/images/09-evening-dining-room-lamps.jpg",
+      "card": "/images/09-evening-dining-room-lamps.jpg",
+      "interior": "/images/01-hero-dining-room-evening.jpg",
+      "dish": "/images/20-kitchen-plating.jpg",
+      "detail": "/images/12-wine-glass-napkin.jpg",
       "gallery": [
-        null,
-        null,
-        null,
-        null
+        "/images/15-celebration-table.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/21-wine-display.jpg",
+        "/images/11-table-setting.jpg"
       ]
     }
   }

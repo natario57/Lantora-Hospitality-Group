@@ -4,13 +4,13 @@ import Photo from '../components/Photo.astro';
 import site from '../data/site.json';
 
 const values = [
-  { n: 'i.', title: 'Thoughtful Concepts', text: 'Each place begins with a clear idea — a point of view on food, room and ritual.', tone: '#C9B69C' },
-  { n: 'ii.', title: 'Beautiful Spaces', text: 'Rooms designed to feel warm and considered, where guests want to linger.', tone: '#BFAA8E' },
-  { n: 'iii.', title: 'Memorable Moments', text: 'The welcome, the table, the conversation that runs long — the moments that bring people back.', tone: '#D6C6AE' },
+  { n: 'i.', title: 'Thoughtful Concepts', image: '/images/10-plated-dish.jpg', text: 'Each place begins with a clear idea — a point of view on food, room and ritual.', tone: '#C9B69C' },
+  { n: 'ii.', title: 'Beautiful Spaces', image: '/images/08-dining-room-city-view.jpg', text: 'Rooms designed to feel warm and considered, where guests want to linger.', tone: '#BFAA8E' },
+  { n: 'iii.', title: 'Memorable Moments', image: '/images/16-friends-toasting.jpg', text: 'The welcome, the table, the conversation that runs long — the moments that bring people back.', tone: '#D6C6AE' },
 ];
 const leaders = [
-  { name: '[Full Name]', title: '[Title]', image: null, tone: '#B9A58A' },
-  { name: '[Full Name]', title: '[Title]', image: null, tone: '#CDBBA2' },
+  { name: '[Full Name]', title: '[Title]', image: '/images/22-portrait-chef.jpg', tone: '#B9A58A' },
+  { name: '[Full Name]', title: '[Title]', image: '/images/23-portrait-restaurateur.jpg', tone: '#CDBBA2' },
 ];
 ---
 <Base title="About" current="about" description={`The story and people behind ${site.name}.`}>
@@ -20,9 +20,9 @@ const leaders = [
   </section>
 
   <section aria-label="Opening image" class="ab-open">
-    <Photo tone="#A8937A" />
+    <Photo src="/images/01-hero-dining-room-evening.jpg" tone="#A8937A" />
     <div class="stack ab-open-side" style="justify-content: flex-end; gap: 24px">
-      <Photo tone="#D6C6AE" style="height: 420px" />
+      <Photo src="/images/20-kitchen-plating.jpg" tone="#D6C6AE" style="height: 420px" />
       <p class="serif" style="font-size: 26px; line-height: 1.35; font-style: italic; color: var(--charcoal)">Every detail, considered.</p>
     </div>
   </section>
@@ -41,7 +41,7 @@ const leaders = [
     <div class="cols-3">
       {values.map((v) => (
         <div class="stack g24">
-          <Photo tone={v.tone} style="height: 460px" />
+          <Photo src={v.image} tone={v.tone} style="height: 460px" />
           <span class="numeral">{v.n}</span>
           <h3 class="serif h5">{v.title}</h3>
           <p style="font-size: 17px; line-height: 1.7; color: var(--charcoal)">{v.text}</p>

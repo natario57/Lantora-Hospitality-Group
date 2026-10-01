@@ -16,9 +16,25 @@
     "tiktok": "#"
   },
   "heroSlides": [
-    { "label": "Dining room, evening service", "image": null, "tone": "#4A3F37" },
-    { "label": "Chef at the pass, plating", "image": null, "tone": "#5B4A3B" },
-    { "label": "Weekend brunch, morning light", "image": null, "tone": "#6E5C49" },
-    { "label": "Architectural detail, the bar", "image": null, "tone": "#3B3430" }
+    {
+      "label": "Dining room, evening service",
+      "image": "/images/01-hero-dining-room-evening.jpg",
+      "tone": "#4A3F37"
+    },
+    {
+      "label": "Chef at the pass, plating",
+      "image": "/images/02-hero-chef-plating.jpg",
+      "tone": "#5B4A3B"
+    },
+    {
+      "label": "Weekend brunch, morning light",
+      "image": "/images/03-hero-brunch-table.jpg",
+      "tone": "#6E5C49"
+    },
+    {
+      "label": "Architectural detail, the bar",
+      "image": "/images/04-hero-cocktail-bar.jpg",
+      "tone": "#3B3430"
+    }
   ]
 }

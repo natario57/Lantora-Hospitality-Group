@@ -5,10 +5,10 @@ import site from '../data/site.json';
 import concepts from '../data/concepts.json';
 
 const occasions = [
-  { title: 'Intimate Dinners', text: 'Small tables, long conversations, a menu made for the occasion.', tone: '#C9B69C' },
-  { title: 'Celebrations', text: 'Birthdays, anniversaries and milestones worth raising a glass to.', tone: '#BFAA8E' },
-  { title: 'Corporate Gatherings', text: 'Team dinners, client evenings and receptions, handled with care.', tone: '#A8937A' },
-  { title: 'Seasonal & Holiday', text: 'Year-end parties and seasonal get-togethers for groups of every size.', tone: '#D6C6AE' },
+  { title: 'Intimate Dinners', image: '/images/11-table-setting.jpg', text: 'Small tables, long conversations, a menu made for the occasion.', tone: '#C9B69C' },
+  { title: 'Celebrations', image: '/images/16-friends-toasting.jpg', text: 'Birthdays, anniversaries and milestones worth raising a glass to.', tone: '#BFAA8E' },
+  { title: 'Corporate Gatherings', image: '/images/17-group-dinner.jpg', text: 'Team dinners, client evenings and receptions, handled with care.', tone: '#A8937A' },
+  { title: 'Seasonal & Holiday', image: '/images/18-holiday-table.jpg', text: 'Year-end parties and seasonal get-togethers for groups of every size.', tone: '#D6C6AE' },
 ];
 const steps = [
   { title: 'Share your occasion', text: "Tell us what you're planning through our inquiry form — a few details is all we need." },
@@ -25,7 +25,7 @@ const spaces = concepts.flatMap((c) => c.spaces.map((s) => ({ ...s, concept: c }
       <p class="body" style="max-width: 500px">From intimate gatherings to memorable celebrations, {site.monogram} creates hospitality experiences designed around your occasion.</p>
       <div class="btn-row"><a class="btn btn-dark" href="/inquiry/">Plan Your Event <span class="arrow">→</span></a><a class="btn btn-line" href="#spaces">View Spaces</a></div>
     </div>
-    <Photo tone="#8C7A66" class="pe-hero-img" />
+    <Photo src="/images/14-private-dining-long-table.jpg" tone="#8C7A66" class="pe-hero-img" />
   </section>
 
   <section aria-labelledby="occ-h" class="wrap section stack g72" style="padding-top: 160px; padding-bottom: 160px">
@@ -36,7 +36,7 @@ const spaces = concepts.flatMap((c) => c.spaces.map((s) => ({ ...s, concept: c }
     <div class="cols-4">
       {occasions.map((o) => (
         <div class="stack" style="gap: 20px">
-          <Photo tone={o.tone} style="height: 420px" />
+          <Photo src={o.image} tone={o.tone} style="height: 420px" />
           <h3 class="serif h6">{o.title}</h3>
           <p style="font-size: 16px; line-height: 1.7; color: var(--charcoal)">{o.text}</p>
         </div>
@@ -72,7 +72,7 @@ const spaces = concepts.flatMap((c) => c.spaces.map((s) => ({ ...s, concept: c }
   </section>
 
   <section aria-labelledby="final-h" class="on-dark" style="padding: 0 var(--edge) var(--edge)">
-    <Photo tone="#3B3430" class="dim final-cta">
+    <Photo src="/images/01-hero-dining-room-evening.jpg" tone="#3B3430" class="dim final-cta">
       <div class="final-cta-copy">
         <span class="eyebrow">Private Events Inquiry</span>
         <h2 id="final-h" class="serif" style="font-size: clamp(48px, 6.7vw, 96px); line-height: 1; letter-spacing: -.02em">Tell us about your <em>occasion.</em></h2>
