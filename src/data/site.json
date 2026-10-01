@@ -1,0 +1,24 @@
+{
+  "name": "Lantora Hospitality Group",
+  "monogram": "LHG",
+  "wordmarkSub": "Hospitality",
+  "domain": "[YOURDOMAIN.COM]",
+  "tagline": "Quiet luxury, warm hospitality.",
+  "email": "[GROUP EMAIL ADDRESS]",
+  "phone": "[PHONE NUMBER]",
+  "address": "[MAILING ADDRESS]",
+  "pressEmail": "[PRESS EMAIL]",
+  "careersEmail": "[CAREERS EMAIL]",
+  "giftCardUrl": "https://www.toasttab.com/",
+  "social": {
+    "instagram": "#",
+    "facebook": "#",
+    "tiktok": "#"
+  },
+  "heroSlides": [
+    { "label": "Dining room, evening service", "image": null, "tone": "#4A3F37" },
+    { "label": "Chef at the pass, plating", "image": null, "tone": "#5B4A3B" },
+    { "label": "Weekend brunch, morning light", "image": null, "tone": "#6E5C49" },
+    { "label": "Architectural detail, the bar", "image": null, "tone": "#3B3430" }
+  ]
+}

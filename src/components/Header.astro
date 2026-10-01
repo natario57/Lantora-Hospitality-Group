@@ -1,0 +1,41 @@
+---
+import site from '../data/site.json';
+import Wordmark from './Wordmark.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import { nav } from '../data/nav';
+
+interface Props { current?: string }
+const { current } = Astro.props;
+---
+<header class="site-header" data-header>
+  <div class="bar-inner wrap">
+    <Wordmark />
+    <nav class="primary-nav" aria-label="Primary">
+      {nav.map((n) => (
+        <a class="navlink ulink" href={n.href} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-line btn-sm" href="/inquiry/" data-open-event>Inquire</a>
+      <button type="button" class="iconbtn menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu" data-menu-toggle>
+        <span data-icon-open><Icon name="menu" /></span>
+        <span data-icon-close hidden><Icon name="close" /></span>
+      </button>
+    </div>
+  </div>
+  <div id="site-menu" class="menu-panel" hidden data-menu>
+    <div class="grid12">
+      <nav aria-label="Menu" class="menu-links" style="grid-column: span 7">
+        {nav.map((n) => <a class="ulink" href={n.href}>{n.label}</a>)}
+      </nav>
+      <div class="stack g24" style="grid-column: span 5">
+        <Photo tone="#CDBBA2" style="height: 300px" />
+        <div class="menu-foot">
+          <a class="btn btn-dark" href="/inquiry/" data-open-event>Plan Your Event</a>
+          <div>{site.email}<br />{site.phone}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

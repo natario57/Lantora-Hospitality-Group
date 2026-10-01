@@ -1,0 +1,28 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+/** Private events inquiry, opened by any [data-open-event] link on pages that include it. */
+---
+<dialog class="sheet" id="event-dialog" aria-labelledby="ev-h" data-event-dialog>
+  <div class="sheet-grid">
+    <Photo tone="#A8937A" />
+    <div class="sheet-body">
+      <form method="dialog"><button type="submit" class="iconbtn sheet-close" aria-label="Close"><Icon name="close" /></button></form>
+      <div class="stack g14">
+        <span class="eyebrow">Private Events Inquiry</span>
+        <h2 id="ev-h" class="serif" style="font-size: clamp(36px, 3.6vw, 52px); line-height: 1.02">Tell us about your <em>occasion.</em></h2>
+      </div>
+      <form class="form" style="gap: 32px" name="private-event" method="POST" action="/inquiry/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="private-event" />
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="field"><label for="e-name">Name</label><input id="e-name" name="name" type="text" autocomplete="name" required /></div>
+        <div class="field-row">
+          <div class="field"><label for="e-email">Email</label><input id="e-email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="e-phone">Phone</label><input id="e-phone" name="phone" type="tel" autocomplete="tel" /></div>
+        </div>
+        <div class="field"><label for="e-desc">Occasion / Description</label><textarea id="e-desc" name="occasion" rows="4" placeholder="Type of event, preferred date, approximate guest count" required></textarea></div>
+        <button type="submit" class="btn btn-dark" style="align-self: flex-start">Submit Inquiry <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</dialog>

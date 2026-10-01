@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import site from '../../data/site.json';
+import concepts from '../../data/concepts.json';
+
+export function getStaticPaths() {
+  return concepts.map((c, i) => ({ params: { slug: c.slug }, props: { index: i } }));
+}
+
+const { index } = Astro.props;
+const c = concepts[index];
+// "More from" shows the next two restaurants in order
+const more = [1, 2].map((k) => concepts[(index + k) % concepts.length]);
+const isPlaceholder = (v: string | null) => !v || v === '#' || v.startsWith('[');
+const g = c.images.gallery;
+---
+<Base title={c.name} current="concepts" description={c.tagline}>
+  <nav aria-label="Breadcrumb" class="wrap breadcrumb">
+    <a class="ulink" href="/concepts/">Concepts</a><span aria-hidden="true">/</span><span aria-current="page" style="color: var(--black)">{c.name}</span>
+  </nav>
+
+  <section aria-labelledby="c-h" class="on-dark" style="padding: 0 var(--edge) var(--edge)">
+    <Photo src={c.images.hero} tone="#4A3F37" alt={c.name} class="shade cd-hero">
+      <div class="cd-hero-copy">
+        <div class="stack g24">
+          <span class="eyebrow">Concept {c.number} — {c.cuisine}</span>
+          <h1 id="c-h" class="serif" style="font-size: clamp(56px, 9.7vw, 140px); line-height: .92; letter-spacing: -.03em; color: var(--ivory)">{c.name}</h1>
+        </div>
+        <span class="serif cd-tagline">{c.tagline}</span>
+      </div>
+    </Photo>
+  </section>
+
+  <section aria-label="Visit information" class="cd-info">
+    <div class="stack g8"><span class="eyebrow sm">Location</span><span class="cd-val">{c.address.map((l, i) => <>{i > 0 && <br />}{l}</>)}</span></div>
+    <div class="stack g8"><span class="eyebrow sm">Hours</span><span class="cd-val">{c.hours.map((l, i) => <>{i > 0 && <br />}{l}</>)}</span></div>
+    <div class="stack g8"><span class="eyebrow sm">Contact</span><span class="cd-val">{c.phone}<br />{c.email}</span></div>
+    <div class="stack g8"><span class="eyebrow sm">Follow</span><a class="ulink cd-val" href={c.instagram.url} style="align-self: flex-start">{c.instagram.handle}</a></div>
+    <div class="btn-row cd-actions">
+      <a class="btn btn-line" href={c.menuUrl} target={isPlaceholder(c.menuUrl) ? undefined : '_blank'} rel="noopener noreferrer" style="padding: 0 24px">View Menu <span class="arrow">↗</span></a>
+      {c.reservationsUrl
+        ? <a class="btn btn-dark" href={c.reservationsUrl} target="_blank" rel="noopener noreferrer" style="padding: 0 24px">Reserve <span class="arrow">↗</span></a>
+        : <a class="btn btn-dark" href="/inquiry/" style="padding: 0 24px">Inquire</a>}
+    </div>
+  </section>
+
+  <section aria-labelledby="story-h" class="wrap grid12" style="padding-top: 160px; padding-bottom: 160px; align-items: start">
+    <div class="stack cd-story" style="gap: 36px">
+      <span class="eyebrow">The Concept</span>
+      <h2 id="story-h" class="serif" style="font-size: clamp(44px, 5vw, 72px); line-height: 1.02; letter-spacing: -.02em" set:html={c.headline} />
+      {c.story.map((p) => <p class="body">{p}</p>)}
+    </div>
+    <div class="cols-2 cd-story-imgs">
+      <Photo src={c.images.interior} tone="#BFAA8E" style="height: 620px; grid-column: span 2" class="cd-tall" />
+      <Photo src={c.images.dish} tone="#D6C6AE" style="height: 340px" />
+      <Photo src={c.images.detail} tone="#C9B69C" style="height: 340px" />
+    </div>
+  </section>
+
+  <section aria-label="Gallery" class="cd-gallery">
+    <Photo src={g[0]} tone="#A8937A" />
+    <div class="cd-gallery-mid"><Photo src={g[1]} tone="#E7DDCD" /><Photo src={g[2]} tone="#CDBBA2" /></div>
+    <Photo src={g[3]} tone="#8C7A66" />
+  </section>
+
+  <section aria-labelledby="pd-h" class="cd-private">
+    <div class="stack" style="gap: 20px; max-width: 700px">
+      <span class="eyebrow">Private Dining at {c.name}</span>
+      <h2 id="pd-h" class="serif" style="font-size: clamp(40px, 4.2vw, 60px); line-height: 1.02">Make it <em>yours</em> for the evening.</h2>
+      <p class="body" style="font-size: 18px">{c.privateDining}</p>
+    </div>
+    <a class="btn btn-dark" href="/inquiry/">Plan Your Event <span class="arrow">→</span></a>
+  </section>
+
+  <section aria-labelledby="more-h" class="wrap stack" style="padding-bottom: 160px; gap: 48px">
+    <div class="head-row rule-top" style="flex-direction: row; align-items: flex-end">
+      <h2 id="more-h" class="serif" style="font-size: 44px">More from {site.monogram}</h2>
+      <a class="tlink" href="/concepts/">All Concepts <span class="arrow">→</span></a>
+    </div>
+    <div class="cols-2">
+      {more.map((m) => (
+        <a href={`/concepts/${m.slug}/`} class="stack" style="text-decoration: none; gap: 18px">
+          <Photo src={m.images.card} tone={m.tone} style="height: 440px" />
+          <span class="serif" style="font-size: 34px">{m.name}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .breadcrumb { padding-top: 28px; padding-bottom: 28px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--muted); }
+  .cd-hero { height: 780px; color: var(--ivory); }
+  .cd-hero-copy { position: absolute; z-index: 1; left: var(--gutter); right: var(--gutter); bottom: 64px; display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+  .cd-tagline { font-size: 24px; font-style: italic; color: rgba(250,247,242,.88); max-width: 340px; text-align: right; }
+  .cd-info { margin: 0 var(--gutter); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; column-gap: 24px; row-gap: 32px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--sand); }
+  .cd-val { font-size: 16px; line-height: 1.5; }
+  .cd-actions { justify-content: flex-end; }
+  .cd-story { grid-column: 1 / span 5; }
+  .cd-story-imgs { grid-column: 7 / span 6; }
+  .cd-gallery { padding: 0 var(--edge) 160px; display: grid; grid-template-columns: 5fr 3fr 4fr; gap: 24px; height: 880px; }
+  .cd-gallery-mid { display: grid; grid-template-rows: 1fr 1fr; gap: 24px; }
+  .cd-private { margin: 0 var(--gutter) 160px; background: var(--cream); padding: 96px; display: flex; justify-content: space-between; align-items: center; gap: 48px; }
+  @media (max-width: 1100px) {
+    .cd-hero { height: 640px; }
+    .cd-hero-copy { flex-direction: column; align-items: flex-start; bottom: 40px; }
+    .cd-tagline { text-align: left; }
+    .cd-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cd-actions { grid-column: 1 / -1; justify-content: flex-start; }
+    .cd-story, .cd-story-imgs { grid-column: 1 / span 12; }
+    .cd-story-imgs { margin-top: 64px; }
+    .cd-gallery { grid-template-columns: 1fr 1fr; height: auto; }
+    .cd-gallery > .photo { height: 420px; }
+    .cd-gallery-mid { grid-column: span 2; grid-template-rows: none; grid-template-columns: 1fr 1fr; height: 300px; }
+    .cd-private { flex-direction: column; align-items: flex-start; padding: 64px 40px; }
+  }
+  @media (max-width: 720px) {
+    .cd-hero { height: 560px; }
+    .cd-hero-copy { left: 20px; right: 20px; bottom: 24px; }
+    .cd-tagline { font-size: 20px; }
+    .cd-info { grid-template-columns: minmax(0, 1fr); }
+    .cd-story-imgs { margin-top: 0; grid-template-columns: 1fr 1fr !important; gap: 12px; }
+    .cd-story-imgs .cd-tall { height: 420px !important; }
+    .cd-story-imgs .photo:not(.cd-tall) { height: 260px !important; }
+    .cd-gallery { grid-template-columns: minmax(0, 1fr); padding-bottom: 96px; }
+    .cd-gallery > .photo { height: 320px; }
+    .cd-gallery-mid { grid-column: auto; height: 200px; }
+    .cd-private { margin-bottom: 96px; padding: 48px 24px; }
+    .cd-private .btn { align-self: stretch; }
+  }
+</style>

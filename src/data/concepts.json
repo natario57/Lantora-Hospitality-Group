@@ -1,0 +1,272 @@
+[
+  {
+    "slug": "restaurant-1",
+    "number": "01",
+    "name": "[Restaurant 1 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": null
+      }
+    ],
+    "tone": "#BFAA8E",
+    "images": {
+      "hero": null,
+      "card": null,
+      "interior": null,
+      "dish": null,
+      "detail": null,
+      "gallery": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-2",
+    "number": "02",
+    "name": "[Restaurant 2 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": null
+      }
+    ],
+    "tone": "#A8937A",
+    "images": {
+      "hero": null,
+      "card": null,
+      "interior": null,
+      "dish": null,
+      "detail": null,
+      "gallery": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-3",
+    "number": "03",
+    "name": "[Restaurant 3 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": null
+      }
+    ],
+    "tone": "#D6C6AE",
+    "images": {
+      "hero": null,
+      "card": null,
+      "interior": null,
+      "dish": null,
+      "detail": null,
+      "gallery": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-4",
+    "number": "04",
+    "name": "[Restaurant 4 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": null
+      }
+    ],
+    "tone": "#C9B69C",
+    "images": {
+      "hero": null,
+      "card": null,
+      "interior": null,
+      "dish": null,
+      "detail": null,
+      "gallery": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-5",
+    "number": "05",
+    "name": "[Restaurant 5 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": null
+      }
+    ],
+    "tone": "#8C7A66",
+    "images": {
+      "hero": null,
+      "card": null,
+      "interior": null,
+      "dish": null,
+      "detail": null,
+      "gallery": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+]

@@ -1,0 +1,9 @@
+---
+import site from '../data/site.json';
+interface Props { href?: string; large?: boolean; label?: string }
+const { href = '/', large = false, label = `${site.name} home` } = Astro.props;
+---
+<a href={href} class:list={['wordmark', { lg: large }]} aria-label={label}>
+  <span class="mono">{site.monogram}</span>
+  <span class="sub">{site.wordmarkSub}</span>
+</a>

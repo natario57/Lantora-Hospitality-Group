@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  current?: string;
+  bare?: boolean; // no header/footer (inquiry pages)
+}
+const { title, description = `Distinctive spaces, memorable dining, and experiences created by ${site.name}.`, current, bare = false } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : site.name;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {!bare && <Header current={current} />}
+    <main id="main">
+      <slot />
+    </main>
+    {!bare && <Footer />}
+    <slot name="after" />
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

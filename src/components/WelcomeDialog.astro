@@ -1,0 +1,33 @@
+---
+import site from '../data/site.json';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+/** First-visit contact popup (homepage only, shown once per browser). */
+---
+<dialog class="sheet narrow" id="welcome-dialog" aria-labelledby="pp-h" data-welcome-dialog>
+  <div class="sheet-grid">
+    <Photo tone="#BFAA8E" />
+    <div class="sheet-body" style="gap: 24px">
+      <form method="dialog"><button type="submit" class="iconbtn sheet-close" aria-label="Close"><Icon name="close" /></button></form>
+      <h2 id="pp-h" class="serif" style="font-size: clamp(30px, 2.9vw, 42px); line-height: 1.05">Let's Create Something <em>Memorable.</em></h2>
+      <p style="font-size: 16px; line-height: 1.65; color: var(--charcoal)">Have an event, inquiry, or question? Get in touch with the {site.monogram} team.</p>
+      <form class="form" style="gap: 22px" name="contact" method="POST" action="/inquiry/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="field-row" style="gap: 22px">
+          <div class="field"><label for="p-first">First Name</label><input id="p-first" name="first_name" type="text" autocomplete="given-name" required /></div>
+          <div class="field"><label for="p-last">Last Name</label><input id="p-last" name="last_name" type="text" autocomplete="family-name" required /></div>
+        </div>
+        <div class="field-row" style="gap: 22px">
+          <div class="field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="p-phone">Phone</label><input id="p-phone" name="phone" type="tel" autocomplete="tel" /></div>
+        </div>
+        <div class="field"><label for="p-msg">Message / Description</label><textarea id="p-msg" name="message" rows="3" required style="min-height: 72px"></textarea></div>
+        <div class="form-foot" style="gap: 16px">
+          <button type="submit" class="btn btn-dark">Send Inquiry</button>
+          <button type="button" class="ulink" data-close-welcome style="border: 0; background: transparent; font: 500 12px var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); cursor: pointer; min-height: 44px">No thanks</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>

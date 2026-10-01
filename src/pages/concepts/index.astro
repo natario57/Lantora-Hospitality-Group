@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import site from '../../data/site.json';
+import concepts from '../../data/concepts.json';
+---
+<Base title="Concepts" current="concepts" description={`The restaurants of ${site.name}.`}>
+  <section aria-labelledby="pg-h" class="wrap grid12 page-head">
+    <div class="stack" style="grid-column: span 8; gap: 28px">
+      <span class="eyebrow">{site.monogram} — Portfolio</span>
+      <h1 id="pg-h" class="serif display">Our <em>Concepts</em></h1>
+    </div>
+    <p class="body" style="grid-column: 9 / span 4">Distinct places, each with its own character, table and rhythm — and the same care behind every detail.</p>
+  </section>
+
+  <section aria-label="Concept index" class="wrap" style="padding-bottom: 140px">
+    <div style="border-top: 1px solid var(--black)">
+      {concepts.map((c) => (
+        <a class="row-link concept-index-row" href={`/concepts/${c.slug}/`}>
+          <span class="numeral">{c.number}</span>
+          <span class="serif cir-name">{c.name}</span>
+          <span class="meta cir-meta">{c.cuisine}</span>
+          <span class="meta cir-meta">{c.neighborhood}</span>
+          <Photo class="cir-thumb" src={c.images.card} tone={c.tone} />
+          <span class="arrow" style="font-size: 22px" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="each-h" class="wrap bg-cream stack g72" style="padding-top: 140px; padding-bottom: 160px">
+    <div class="head-row">
+      <h2 id="each-h" class="serif" style="font-size: clamp(44px, 5vw, 72px); line-height: 1; letter-spacing: -.02em">Explore <em>each place.</em></h2>
+      <span class="eyebrow">{String(concepts.length).padStart(2, '0')} concepts</span>
+    </div>
+    <div class="cols-3 concept-cards">
+      {concepts.map((c) => (
+        <article class="stack" style="gap: 22px">
+          <Photo href={`/concepts/${c.slug}/`} ariaLabel={`Explore ${c.name}`} src={c.images.card} tone={c.tone} alt={c.name} style="height: 540px" />
+          <span class="eyebrow">Concept {c.number}</span>
+          <h3 class="serif h5">{c.name}</h3>
+          <p class="body-sm">{c.tagline}</p>
+          <a class="tlink" href={`/concepts/${c.slug}/`}>Explore Concept <span class="arrow">→</span></a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="cta-h" class="cols-2" style="gap: 0; min-height: 620px">
+    <div class="stack cta-copy" style="justify-content: center; gap: 32px">
+      <span class="eyebrow">Private Events</span>
+      <h2 id="cta-h" class="serif h3">Hosting something <em>special?</em></h2>
+      <p class="body" style="font-size: 18px; max-width: 460px">Every {site.monogram} concept can be the setting for your occasion — from an intimate dinner to a full celebration.</p>
+      <div class="btn-row"><a class="btn btn-dark" href="/private-events/">Private Events <span class="arrow">→</span></a><a class="btn btn-line" href="/inquiry/">Inquire</a></div>
+    </div>
+    <Photo tone="#8C7A66" style="min-height: 520px" />
+  </section>
+</Base>
+
+<style is:global>
+  .page-head { padding-top: 120px; padding-bottom: 90px; align-items: end; }
+  .concept-index-row {
+    display: grid; grid-template-columns: 100px 1fr 280px 240px 160px 40px; align-items: center; column-gap: 24px;
+    padding: 34px 0; border-bottom: 1px solid var(--sand); text-decoration: none; color: var(--black); transition: background-color .5s;
+  }
+  .concept-index-row:hover { background: var(--cream); }
+  .cir-name { font-size: clamp(32px, 3.6vw, 52px); line-height: 1; }
+  .cir-thumb { width: 160px; height: 100px; }
+  .concept-cards > article:nth-child(3n + 2) { padding-top: 80px; }
+  .cta-copy { padding: 120px 96px 120px var(--gutter); }
+  @media (max-width: 1100px) {
+    .page-head > * { grid-column: 1 / span 12 !important; }
+    .page-head p { margin-top: 32px; max-width: 520px; }
+    .concept-index-row { grid-template-columns: 60px 1fr 120px 30px; }
+    .concept-index-row .cir-meta { display: none; }
+    .cir-thumb { width: 120px; height: 80px; }
+    .concept-cards > article:nth-child(3n + 2) { padding-top: 0; }
+    .concept-cards > article:nth-child(even) { padding-top: 80px; }
+    .cta-copy { padding: 96px var(--gutter); }
+  }
+  @media (max-width: 720px) {
+    .page-head { padding-top: 72px; padding-bottom: 56px; }
+    .concept-index-row { grid-template-columns: 40px 1fr 24px; padding: 24px 0; }
+    .cir-thumb { display: none !important; }
+    .concept-cards > article:nth-child(even) { padding-top: 0; }
+    .concept-cards .photo { height: 400px !important; }
+  }
+</style>
