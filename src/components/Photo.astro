@@ -1,0 +1,22 @@
+---
+/**
+ * An image slot from the design. Shows the photo when `src` is set,
+ * otherwise the design's warm placeholder tone.
+ */
+interface Props {
+  src?: string | null;
+  tone?: string;
+  alt?: string;
+  href?: string;
+  class?: string;
+  style?: string;
+  ariaLabel?: string;
+}
+const { src, tone = '#D6C6AE', alt = '', href, class: cls = '', style = '', ariaLabel } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const bg = src ? `background-image:url('${src}')` : '';
+---
+<Tag class={`photo ${cls}`} href={href} aria-label={ariaLabel} style={`background-color:${tone};${style}`}>
+  {src ? <div class="ph" role="img" aria-label={alt} style={bg}></div> : <div class="ph" aria-hidden="true"></div>}
+  <slot />
+</Tag>

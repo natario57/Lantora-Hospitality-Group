@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import site from '../data/site.json';
+import concepts from '../data/concepts.json';
+
+const occasions = [
+  { title: 'Intimate Dinners', image: '/images/11-table-setting.jpg', text: 'Small tables, long conversations, a menu made for the occasion.', tone: '#C9B69C' },
+  { title: 'Celebrations', image: '/images/16-friends-toasting.jpg', text: 'Birthdays, anniversaries and milestones worth raising a glass to.', tone: '#BFAA8E' },
+  { title: 'Corporate Gatherings', image: '/images/17-group-dinner.jpg', text: 'Team dinners, client evenings and receptions, handled with care.', tone: '#A8937A' },
+  { title: 'Seasonal & Holiday', image: '/images/18-holiday-table.jpg', text: 'Year-end parties and seasonal get-togethers for groups of every size.', tone: '#D6C6AE' },
+];
+const steps = [
+  { title: 'Share your occasion', text: "Tell us what you're planning through our inquiry form — a few details is all we need." },
+  { title: 'Hear from our team', text: 'Our events team will reply by email to talk through spaces, menus and timing.' },
+  { title: 'Plan the details', text: 'Together we shape an evening that feels effortless for you and your guests.' },
+];
+const spaces = concepts.flatMap((c) => c.spaces.map((s) => ({ ...s, concept: c })));
+---
+<Base title="Private Events" current="events" description={`Private dining and events at ${site.name}.`}>
+  <section aria-labelledby="pe-h" class="grid12 pe-hero">
+    <div class="stack pe-hero-copy" style="gap: 36px; justify-content: center">
+      <span class="eyebrow">{site.monogram} — Private Events</span>
+      <h1 id="pe-h" class="serif" style="font-size: clamp(56px, 8.9vw, 128px); line-height: .94; letter-spacing: -.03em">Make It An <em>Occasion.</em></h1>
+      <p class="body" style="max-width: 500px">From intimate gatherings to memorable celebrations, {site.monogram} creates hospitality experiences designed around your occasion.</p>
+      <div class="btn-row"><a class="btn btn-dark" href="/inquiry/">Plan Your Event <span class="arrow">→</span></a><a class="btn btn-line" href="#spaces">View Spaces</a></div>
+    </div>
+    <Photo src="/images/14-private-dining-long-table.jpg" tone="#8C7A66" class="pe-hero-img" />
+  </section>
+
+  <section aria-labelledby="occ-h" class="wrap section stack g72" style="padding-top: 160px; padding-bottom: 160px">
+    <div class="head-row">
+      <div class="stack g24"><span class="eyebrow">01 — Occasions</span><h2 id="occ-h" class="serif h3">Designed around <em>you.</em></h2></div>
+      <p class="body" style="font-size: 18px; max-width: 400px">Whatever you're marking, our team shapes the menu, the room and the pace of the evening to suit it.</p>
+    </div>
+    <div class="cols-4">
+      {occasions.map((o) => (
+        <div class="stack" style="gap: 20px">
+          <Photo src={o.image} tone={o.tone} style="height: 420px" />
+          <h3 class="serif h6">{o.title}</h3>
+          <p style="font-size: 16px; line-height: 1.7; color: var(--charcoal)">{o.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="spaces" aria-labelledby="sp-h" class="wrap bg-cream stack" style="padding-top: 150px; padding-bottom: 160px; gap: 64px">
+    <div class="stack g24"><span class="eyebrow">02 — Spaces</span><h2 id="sp-h" class="serif h3">Our <em>spaces.</em></h2></div>
+    <div class="stack" style="border-top: 1px solid var(--black)">
+      {spaces.map((s) => (
+        <article class="space-row">
+          <Photo src={s.image} tone={s.concept.tone} class="space-img" />
+          <div class="stack" style="gap: 12px">
+            <span class="eyebrow sm">At <a class="ulink" href={`/concepts/${s.concept.slug}/`} style="color: inherit">{s.concept.name}</a></span>
+            <h3 class="serif" style="font-size: clamp(32px, 3vw, 44px)">{s.name}</h3>
+            <p style="font-size: 16px; line-height: 1.7; color: var(--charcoal)">{s.description}</p>
+          </div>
+          <div class="stack g8" style="font-size: 15px; line-height: 1.6"><span class="eyebrow sm">Capacity</span><span>{s.seated} seated</span><span>{s.reception} reception</span></div>
+          <a class="tlink space-cta" href="/inquiry/">Inquire <span class="arrow">→</span></a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h" class="wrap grid12" style="padding-top: 160px; padding-bottom: 160px">
+    <div class="stack g24" style="grid-column: span 4"><span class="eyebrow">03 — How It Works</span><h2 id="how-h" class="serif" style="font-size: clamp(44px, 5vw, 72px); line-height: 1; letter-spacing: -.02em">Simple from the <em>start.</em></h2></div>
+    <ol class="steps" style="grid-column: 6 / span 7">
+      {steps.map((s, k) => (
+        <li><span class="serif" style="font-size: 40px; color: var(--muted)">{String(k + 1).padStart(2, '0')}</span><div class="stack" style="gap: 10px"><h3 class="serif h6">{s.title}</h3><p class="body-sm">{s.text}</p></div></li>
+      ))}
+    </ol>
+  </section>
+
+  <section aria-labelledby="final-h" class="on-dark" style="padding: 0 var(--edge) var(--edge)">
+    <Photo src="/images/01-hero-dining-room-evening.jpg" tone="#3B3430" class="dim final-cta">
+      <div class="final-cta-copy">
+        <span class="eyebrow">Private Events Inquiry</span>
+        <h2 id="final-h" class="serif" style="font-size: clamp(48px, 6.7vw, 96px); line-height: 1; letter-spacing: -.02em">Tell us about your <em>occasion.</em></h2>
+        <a class="btn btn-light" href="/inquiry/">Plan Your Event <span class="arrow">→</span></a>
+      </div>
+    </Photo>
+  </section>
+</Base>
+
+<style is:global>
+  .pe-hero { padding-left: var(--gutter); min-height: 860px; }
+  .pe-hero-copy { grid-column: span 6; padding: 100px 40px 100px 0; }
+  .pe-hero-img { grid-column: 7 / span 6; }
+  .space-row { display: grid; grid-template-columns: 420px 1fr 200px 140px; column-gap: 40px; row-gap: 24px; align-items: center; padding: 36px 0; border-bottom: 1px solid var(--sand); }
+  .space-img { height: 260px; }
+  .space-cta { justify-self: end; align-self: center !important; }
+  .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .steps li { display: grid; grid-template-columns: 90px 1fr; padding: 32px 0; border-top: 1px solid var(--sand); }
+  .steps li:last-child { border-bottom: 1px solid var(--sand); }
+  .final-cta { height: 620px; color: var(--ivory); }
+  .final-cta-copy { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; text-align: center; padding: 0 var(--gutter); }
+  @media (max-width: 1100px) {
+    .pe-hero { padding-left: 0; min-height: 0; }
+    .pe-hero-copy { grid-column: 1 / span 12; padding: 96px var(--gutter); }
+    .pe-hero-img { grid-column: 1 / span 12; height: 520px; }
+    .space-row { grid-template-columns: 280px 1fr; }
+    .space-img { grid-row: span 3; height: 100%; min-height: 220px; }
+    .space-cta { justify-self: start; }
+    .steps { margin-top: 48px !important; }
+    #how-h { max-width: 520px; }
+    section > .stack[style*="span 4"], .steps { grid-column: 1 / span 12 !important; }
+  }
+  @media (max-width: 720px) {
+    .pe-hero-copy { padding: 72px 20px; }
+    .pe-hero-img { height: 400px; }
+    .space-row { grid-template-columns: minmax(0, 1fr); }
+    .space-img { grid-row: auto; height: 240px; }
+    .steps { margin-top: 0 !important; }
+    .steps li { grid-template-columns: 64px 1fr; }
+    .final-cta { height: 520px; }
+  }
+</style>

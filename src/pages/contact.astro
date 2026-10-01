@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import site from '../data/site.json';
+import concepts from '../data/concepts.json';
+---
+<Base title="Contact" current="contact" description={`Get in touch with ${site.name}.`}>
+  <section aria-labelledby="ct-h" class="wrap grid12 ct" style="align-items: start">
+    <div class="stack ct-left" style="gap: 36px">
+      <span class="eyebrow">{site.monogram} — Contact</span>
+      <h1 id="ct-h" class="serif h1">Let's <em>Connect.</em></h1>
+      <p class="body" style="max-width: 420px">Questions, partnerships or press — send us a note and the {site.monogram} team will be in touch.</p>
+      <div class="cols-2 ct-dir">
+        <div class="stack g8"><span class="eyebrow sm">General</span><span>{site.email}</span><span>{site.phone}</span></div>
+        <div class="stack g8"><span class="eyebrow sm">Private Events</span><a class="ulink" href="/inquiry/" style="align-self: flex-start">Make an inquiry →</a></div>
+        <div class="stack g8"><span class="eyebrow sm">Press</span><span>{site.pressEmail}</span></div>
+        <div class="stack g8"><span class="eyebrow sm">Careers</span><span>{site.careersEmail}</span></div>
+      </div>
+    </div>
+    <div class="ct-form">
+      <ContactForm id="k" title="Send us a note" rows={5} />
+    </div>
+  </section>
+
+  <section aria-labelledby="loc-h" class="wrap stack" style="padding-bottom: 160px; gap: 48px">
+    <div class="head-row rule-top" style="flex-direction: row; align-items: flex-end; flex-wrap: wrap">
+      <h2 id="loc-h" class="serif" style="font-size: clamp(40px, 3.9vw, 56px)">Find our <em>concepts.</em></h2>
+      <a class="tlink" href="/concepts/">All Concepts <span class="arrow">→</span></a>
+    </div>
+    <div class="cols-3">
+      {concepts.map((c) => (
+        <a href={`/concepts/${c.slug}/`} class="stack" style="gap: 18px; text-decoration: none">
+          <Photo src={c.images.card} tone={c.tone} style="height: 300px" />
+          <h3 class="serif" style="font-size: 32px">{c.name}</h3>
+          <div style="font-size: 15px; line-height: 1.7; color: var(--charcoal)">{c.address.join(', ')}<br />{c.phone}<br />{c.hours.join(' · ')}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .ct { padding-top: 130px; padding-bottom: 160px; }
+  .ct-left { grid-column: span 5; }
+  .ct-dir { gap: 32px; padding-top: 32px; border-top: 1px solid var(--beige); margin-top: 12px; }
+  .ct-form { grid-column: 7 / span 6; background: var(--cream); padding: 64px; }
+  @media (max-width: 1100px) {
+    .ct-left, .ct-form { grid-column: 1 / span 12; }
+    .ct-form { margin-top: 64px; padding: 48px 40px; }
+  }
+  @media (max-width: 720px) {
+    .ct { padding-top: 72px; padding-bottom: 96px; }
+    .ct-dir { grid-template-columns: 1fr 1fr; }
+    .ct-form { margin-top: 0; padding: 40px 20px; margin-left: calc(var(--gutter) * -1); margin-right: calc(var(--gutter) * -1); }
+  }
+</style>

@@ -1,0 +1,268 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import ContactForm from '../components/ContactForm.astro';
+import EventDialog from '../components/EventDialog.astro';
+import WelcomeDialog from '../components/WelcomeDialog.astro';
+import site from '../data/site.json';
+import concepts from '../data/concepts.json';
+
+const slides = site.heroSlides;
+const total = String(slides.length).padStart(2, '0');
+const mail = site.email.startsWith('[') ? '#' : `mailto:${site.email}`;
+---
+<Base>
+  <!-- Hero -->
+  <section aria-label="Featured" class="on-dark home-hero">
+    <div class="hero-frame" data-carousel>
+      {slides.map((s, k) => (
+        <div class:list={['slide', { on: k === 0 }]} data-slide style={`background-color:${s.tone};${s.image ? `background-image:url('${s.image}')` : ''}`} role={s.image ? 'img' : undefined} aria-label={s.image ? s.label : undefined}></div>
+      ))}
+      <div class="shade-layer" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-copy rise">
+          <span class="eyebrow">{site.name}</span>
+          <h1 class="serif hero-title">Hospitality,<br /><em>Thoughtfully</em> Curated.</h1>
+          <p class="hero-lede">Distinctive spaces, memorable dining, and experiences created by {site.name}.</p>
+          <div class="btn-row" style="margin-top: 8px">
+            <a class="btn btn-light" href="#concepts">Explore Our Concepts <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="/private-events/" data-open-event>Private Events</a>
+          </div>
+        </div>
+        <div class="hero-controls">
+          <div class="hero-count">
+            <div class="serif" aria-live="polite" style="font-size: 20px; letter-spacing: .06em"><span data-current>01</span> <span style="opacity: .55">/ {total}</span></div>
+            <div class="hero-arrows">
+              <button type="button" class="iconbtn" aria-label="Previous slide" data-prev style="width: 44px; height: 44px"><Icon name="prev" /></button>
+              <button type="button" class="iconbtn" aria-label="Next slide" data-next style="width: 44px; height: 44px"><Icon name="next" /></button>
+            </div>
+          </div>
+          <div class="bars">
+            {slides.map((s, k) => (
+              <button type="button" class:list={['bar', { on: k === 0 }]} data-bar aria-label={`Show slide ${String(k + 1).padStart(2, '0')}`}><i></i></button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section aria-labelledby="intro-h" class="wrap grid12 intro">
+    <div class="reveal intro-copy stack g40">
+      <span class="eyebrow">01 — Introduction</span>
+      <h2 id="intro-h" class="serif h2">Creating Places People <em>Remember.</em></h2>
+      <div class="stack" style="gap: 20px; max-width: 500px" data-indent>
+        <p class="body">{site.name} builds distinctive restaurant and hospitality concepts — each with its own character, all shaped by the belief that a great experience is made of many small, deliberate details.</p>
+        <p class="body">From the room and the plate to the welcome at the door, we create places worth returning to.</p>
+        <a class="tlink" href="/about/" style="margin-top: 16px">About {site.monogram} <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="intro-images">
+      <Photo src="/images/08-dining-room-city-view.jpg" class="reveal intro-main" tone="#C9B69C" />
+      <Photo src="/images/10-plated-dish.jpg" class="reveal intro-inset" tone="#E7DDCD" />
+    </div>
+  </section>
+
+  <!-- Concepts -->
+  <section id="concepts" aria-labelledby="concepts-h" class="wrap bg-cream" style="padding-top: 150px; padding-bottom: var(--section)">
+    <div class="reveal grid12 concepts-head">
+      <div class="stack" style="grid-column: span 7; gap: 28px">
+        <span class="eyebrow">02 — Portfolio</span>
+        <h2 id="concepts-h" class="serif h2-lg">Our <em>Concepts</em></h2>
+      </div>
+      <p class="body" style="grid-column: 9 / span 4; font-size: 18px">Each {site.monogram} concept is its own place — with its own table, menu and rhythm, and the same care behind every detail.</p>
+    </div>
+    <div class="stack concept-list">
+      {concepts.map((c, k) => (
+        <article class:list={['reveal grid12 concept-row', { flip: k % 2 === 1 }]}>
+          <Photo href={`/concepts/${c.slug}/`} ariaLabel={`Explore ${c.name}`} src={c.images.card} tone={c.tone} class="concept-img" alt={c.name} />
+          <div class="stack concept-text" style="gap: 26px">
+            <span class="eyebrow">Concept {c.number}</span>
+            <h3 class="serif h4">{c.name}</h3>
+            <p class="body" style="font-size: 18px">{c.summary}</p>
+            <div class="meta">{c.neighborhood}</div>
+            <a class="tlink" href={`/concepts/${c.slug}/`}>Explore Concept <span class="arrow">→</span></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Private events -->
+  <section id="events" aria-labelledby="events-h" class="cols-2 home-events" style="gap: 0">
+    <Photo src="/images/14-private-dining-long-table.jpg" tone="#8C7A66" class="events-img" />
+    <div class="reveal stack events-copy" style="gap: 28px; justify-content: center">
+      <span class="eyebrow">03 — Private Events</span>
+      <h2 id="events-h" class="serif h3">Make It An <em>Occasion.</em></h2>
+      <p class="body">From intimate gatherings to memorable celebrations, {site.monogram} creates hospitality experiences designed around your occasion.</p>
+      <div class="btn-row" style="margin-top: 8px">
+        <a class="btn btn-dark" href="/inquiry/" data-open-event>Plan Your Event <span class="arrow">→</span></a>
+        <a class="btn btn-line" href="/private-events/">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gift cards -->
+  <section id="gift" aria-labelledby="gift-h" class="wrap section grid12" style="align-items: center">
+    <div class="reveal gift-stage" style="grid-column: 1 / span 6">
+      <div class="gift-under" aria-hidden="true"></div>
+      <div class="gift-card on-dark" role="img" aria-label={`${site.monogram} gift card`}>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start">
+          <span class="wordmark" style="pointer-events: none"><span class="mono" style="font-size: 28px">{site.monogram}</span><span class="sub" style="font-size: 8.5px">{site.wordmarkSub}</span></span>
+          <span class="eyebrow" style="font-size: 10px; color: rgba(250,247,242,.7)">Gift Card</span>
+        </div>
+        <div class="serif" style="font-size: 26px; font-style: italic; line-height: 1.2">The gift of hospitality.</div>
+      </div>
+    </div>
+    <div class="reveal stack" style="grid-column: 8 / span 5; gap: 32px">
+      <span class="eyebrow">04 — Gift Cards</span>
+      <h2 id="gift-h" class="serif h3">Give the Gift of <em>Hospitality.</em></h2>
+      <p class="body">Share memorable dining experiences with someone special.</p>
+      <div class="stack g14" style="align-items: flex-start; margin-top: 8px">
+        <a class="btn btn-dark" href={site.giftCardUrl} target="_blank" rel="noopener noreferrer">Purchase a Gift Card <span class="arrow">↗</span></a>
+        <span class="note">Opens our secure gift card page on Toast in a new tab.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-labelledby="about-h" class="wrap bg-cream" style="padding-top: 160px; padding-bottom: 180px">
+    <div class="reveal stack g32">
+      <span class="eyebrow">05 — About {site.monogram}</span>
+      <h2 id="about-h" class="serif about-title">More Than Dining.<br /><em>It's Hospitality.</em></h2>
+    </div>
+    <div class="grid12 about-grid">
+      <Photo src="/images/19-service-bartender.jpg" class="reveal" tone="#B9A58A" style="grid-column: 1 / span 5; height: 680px" />
+      <div class="stack about-right" style="gap: 56px">
+        <div class="reveal cols-2" style="gap: 32px">
+          <p class="body" style="font-size: 18px; line-height: 1.75">{site.name} creates distinctive hospitality experiences through thoughtful concepts, beautiful spaces and exceptional food.</p>
+          <p class="body" style="font-size: 18px; line-height: 1.75">Every room we open is built around the moments people share inside it — the welcome, the table, the conversation that runs long.</p>
+        </div>
+        <div class="reveal cols-3 pillars">
+          <div class="stack g14"><span class="numeral" style="font-size: 20px">i.</span><span class="serif" style="font-size: 28px; line-height: 1.15">Thoughtful Concepts</span></div>
+          <div class="stack g14"><span class="numeral" style="font-size: 20px">ii.</span><span class="serif" style="font-size: 28px; line-height: 1.15">Beautiful Spaces</span></div>
+          <div class="stack g14"><span class="numeral" style="font-size: 20px">iii.</span><span class="serif" style="font-size: 28px; line-height: 1.15">Memorable Moments</span></div>
+        </div>
+        <div class="cols-2 about-pair">
+          <Photo src="/images/13-brunch-coffee-pastries.jpg" class="reveal" tone="#D6C6AE" style="height: 340px" />
+          <Photo src="/images/21-wine-display.jpg" class="reveal offset" tone="#CDBBA2" style="height: 340px" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-labelledby="contact-h" class="wrap section grid12">
+    <div class="reveal stack" style="grid-column: 1 / span 5; gap: 36px">
+      <span class="eyebrow">06 — Contact</span>
+      <h2 id="contact-h" class="serif h2" style="font-size: clamp(56px, 7.2vw, 104px); line-height: .98">Let's <em>Connect.</em></h2>
+      <p class="body" style="font-size: 18px; max-width: 400px">Questions, partnerships or press — send us a note and the {site.monogram} team will be in touch.</p>
+      <div class="stack g8" style="font-size: 16px; line-height: 1.6; padding-top: 24px; border-top: 1px solid var(--beige); max-width: 400px">
+        <span class="eyebrow sm">General inquiries</span>
+        <a class="ulink" href={mail} style="align-self: flex-start">{site.email}</a>
+        <span>{site.phone}</span>
+      </div>
+    </div>
+    <div class="reveal" style="grid-column: 7 / span 6; padding-top: 20px">
+      <ContactForm id="home-c" />
+    </div>
+  </section>
+
+  <Fragment slot="after">
+    <EventDialog />
+    <WelcomeDialog />
+  </Fragment>
+</Base>
+
+<style is:global>
+  .home-hero { padding: 0 var(--edge) var(--edge); }
+  .hero-frame { position: relative; height: min(860px, calc(100vh - var(--header-h) - var(--edge))); min-height: 620px; overflow: hidden; background: #2F2A26; color: var(--ivory); }
+  .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.06); transition: opacity 1.8s ease, transform 8s linear; }
+  .slide.on { opacity: 1; transform: scale(1); }
+  .shade-layer { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21,20,18,0) 35%, rgba(21,20,18,.55) 100%); }
+  .hero-content { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 64px; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
+  .hero-copy { max-width: 860px; display: flex; flex-direction: column; gap: 28px; }
+  .hero-title { font-size: clamp(52px, 7.8vw, 112px); line-height: .98; letter-spacing: -.02em; }
+  .hero-lede { font-size: 19px; line-height: 1.6; max-width: 540px; color: rgba(250,247,242,.88); }
+  .hero-controls { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px; }
+  .hero-count { display: flex; align-items: baseline; justify-content: space-between; }
+  .hero-arrows { display: flex; gap: 4px; }
+  .bars { display: flex; gap: 8px; }
+  .bar { flex: 1; height: 14px; position: relative; border: 0; padding: 0; background: transparent; cursor: pointer; }
+  .bar::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: rgba(250,247,242,.3); }
+  .bar i { position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: var(--ivory); transform: scaleX(0); transform-origin: left; }
+  .bar.on i { animation: fill 6.5s linear forwards; }
+  @keyframes fill { to { transform: scaleX(1); } }
+
+  .intro { padding-top: var(--section); padding-bottom: 180px; align-items: start; }
+  .intro-copy { grid-column: 1 / span 6; padding-top: 40px; }
+  .intro-copy [data-indent] { margin-left: 120px; }
+  .intro-images { grid-column: 8 / span 5; position: relative; height: 900px; }
+  .intro-main { position: absolute; right: 0; top: 0; width: 100%; height: 700px; }
+  .intro-inset { position: absolute; left: -150px; bottom: 0; width: 300px; height: 380px; border: 14px solid var(--ivory); }
+
+  .concepts-head { align-items: end; padding-bottom: 72px; border-bottom: 1px solid var(--sand); }
+  .concept-list { gap: 140px; padding-top: 110px; }
+  .concept-row { align-items: center; }
+  .concept-img { grid-column: 1 / span 7; height: 640px; }
+  .concept-text { grid-column: 9 / span 4; }
+  .concept-row.flip .concept-img { grid-column: 6 / span 7; grid-row: 1; }
+  .concept-row.flip .concept-text { grid-column: 1 / span 4; grid-row: 1; }
+
+  .events-img { min-height: 720px; }
+  .events-copy { padding: 88px var(--gutter); }
+
+  .gift-stage { width: 100%; min-width: 0; height: 560px; background: var(--beige); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .gift-under { position: absolute; width: 400px; max-width: 70%; height: 250px; background: var(--sand); transform: rotate(-7deg) translate(-40px, 20px); }
+  .gift-card { position: relative; width: min(420px, 80%); aspect-ratio: 420 / 264; background: var(--black); color: var(--ivory); padding: 32px 34px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 30px 60px -30px rgba(21,20,18,.45); transform: rotate(3deg); }
+
+  .about-title { font-size: clamp(54px, 10.4vw, 150px); line-height: .92; letter-spacing: -.03em; }
+  .about-title em { padding-left: 15%; }
+  .about-grid { margin-top: 110px; align-items: start; }
+  .about-right { grid-column: 7 / span 6; padding-top: 80px; }
+  .pillars { border-top: 1px solid var(--sand); padding-top: 36px; }
+  .about-pair .offset { margin-top: 70px; }
+
+  @media (max-width: 1100px) {
+    .hero-content { flex-direction: column; align-items: stretch; bottom: 40px; }
+    .hero-controls { width: 100%; }
+    .intro-copy { grid-column: 1 / span 12; }
+    .intro-copy [data-indent] { margin-left: 0; }
+    .intro-images { grid-column: 1 / span 12; height: 640px; margin-top: 64px; }
+    .intro-main { width: 80%; height: 520px; }
+    .intro-inset { left: 0; width: 240px; height: 300px; }
+    .concepts-head > * { grid-column: 1 / span 12 !important; }
+    .concepts-head p { margin-top: 24px; max-width: 460px; }
+    .concept-list { gap: 96px; padding-top: 72px; }
+    .concept-row .concept-img, .concept-row.flip .concept-img { grid-column: 1 / span 12; grid-row: 1; height: 480px; }
+    .concept-row .concept-text, .concept-row.flip .concept-text { grid-column: 1 / span 12; grid-row: 2; margin-top: 32px; }
+    .gift-stage { grid-column: 1 / span 12 !important; height: 420px; }
+    .gift-stage + div { grid-column: 1 / span 12 !important; margin-top: 48px; }
+    .about-grid > .photo { grid-column: 1 / span 12 !important; height: 520px !important; }
+    .about-right { grid-column: 1 / span 12; padding-top: 56px; }
+    #contact > div { grid-column: 1 / span 12 !important; }
+    #contact > div + div { margin-top: 48px; }
+  }
+  @media (max-width: 720px) {
+    .hero-frame { height: 700px; min-height: 0; }
+    .hero-content { left: 20px; right: 20px; bottom: 24px; gap: 20px; }
+    .hero-copy { gap: 20px; }
+    .hero-lede { font-size: 16px; }
+    .hero-arrows { display: none; }
+    .intro { padding-bottom: 104px; }
+    .intro-images { height: 460px; margin-top: 0; }
+    .intro-main { width: 100%; height: 380px; }
+    .intro-inset { width: 160px; height: 200px; border-width: 10px; }
+    .concept-row .concept-img, .concept-row.flip .concept-img { height: 360px; }
+    .events-img { min-height: 440px; }
+    .events-copy { padding: 72px 20px 96px; }
+    .gift-stage { height: 340px; }
+    .about-title em { padding-left: 0; }
+    .about-grid { margin-top: 56px; row-gap: 0; }
+    .about-grid > .photo { height: 420px !important; }
+    .about-pair .offset { margin-top: 0; }
+    .about-pair .photo { height: 260px !important; }
+  }
+</style>

@@ -1,0 +1,272 @@
+[
+  {
+    "slug": "restaurant-1",
+    "number": "01",
+    "name": "[Restaurant 1 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": "/images/15-celebration-table.jpg"
+      }
+    ],
+    "tone": "#BFAA8E",
+    "images": {
+      "hero": "/images/05-concept-01-restaurant-interior.jpg",
+      "card": "/images/05-concept-01-restaurant-interior.jpg",
+      "interior": "/images/09-evening-dining-room-lamps.jpg",
+      "dish": "/images/10-plated-dish.jpg",
+      "detail": "/images/12-wine-glass-napkin.jpg",
+      "gallery": [
+        "/images/11-table-setting.jpg",
+        "/images/13-brunch-coffee-pastries.jpg",
+        "/images/20-kitchen-plating.jpg",
+        "/images/21-wine-display.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-2",
+    "number": "02",
+    "name": "[Restaurant 2 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": "/images/09-evening-dining-room-lamps.jpg"
+      }
+    ],
+    "tone": "#A8937A",
+    "images": {
+      "hero": "/images/06-concept-02-bar.jpg",
+      "card": "/images/06-concept-02-bar.jpg",
+      "interior": "/images/04-hero-cocktail-bar.jpg",
+      "dish": "/images/20-kitchen-plating.jpg",
+      "detail": "/images/21-wine-display.jpg",
+      "gallery": [
+        "/images/19-service-bartender.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/09-evening-dining-room-lamps.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-3",
+    "number": "03",
+    "name": "[Restaurant 3 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": "/images/18-holiday-table.jpg"
+      }
+    ],
+    "tone": "#D6C6AE",
+    "images": {
+      "hero": "/images/07-concept-03-cafe.jpg",
+      "card": "/images/07-concept-03-cafe.jpg",
+      "interior": "/images/03-hero-brunch-table.jpg",
+      "dish": "/images/13-brunch-coffee-pastries.jpg",
+      "detail": "/images/11-table-setting.jpg",
+      "gallery": [
+        "/images/18-holiday-table.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/20-kitchen-plating.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-4",
+    "number": "04",
+    "name": "[Restaurant 4 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": "/images/14-private-dining-long-table.jpg"
+      }
+    ],
+    "tone": "#C9B69C",
+    "images": {
+      "hero": "/images/08-dining-room-city-view.jpg",
+      "card": "/images/08-dining-room-city-view.jpg",
+      "interior": "/images/09-evening-dining-room-lamps.jpg",
+      "dish": "/images/10-plated-dish.jpg",
+      "detail": "/images/21-wine-display.jpg",
+      "gallery": [
+        "/images/11-table-setting.jpg",
+        "/images/19-service-bartender.jpg",
+        "/images/12-wine-glass-napkin.jpg",
+        "/images/13-brunch-coffee-pastries.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "restaurant-5",
+    "number": "05",
+    "name": "[Restaurant 5 Name]",
+    "cuisine": "[Cuisine / Style]",
+    "neighborhood": "[Neighborhood, City]",
+    "tagline": "[A short tagline for this restaurant.]",
+    "summary": "[Short description: cuisine, atmosphere and what makes it distinctive. Two to three sentences.]",
+    "headline": "[A headline that captures <em>this place.</em>]",
+    "story": [
+      "[Restaurant story, paragraph one: the idea, the food and the room.]",
+      "[Paragraph two: what guests can expect, signature dishes or rituals.]"
+    ],
+    "address": [
+      "[Street Address]",
+      "[City, State ZIP]"
+    ],
+    "hours": [
+      "[Days · Hours]",
+      "[Days · Hours]"
+    ],
+    "phone": "[Phone]",
+    "email": "[Restaurant email]",
+    "instagram": {
+      "handle": "[@instagram]",
+      "url": "#"
+    },
+    "menuUrl": "#",
+    "reservationsUrl": null,
+    "privateDining": "[Private dining details for this restaurant: spaces and capacity.]",
+    "spaces": [
+      {
+        "name": "[Space Name]",
+        "description": "[One line describing the room and its atmosphere.]",
+        "seated": "[##]",
+        "reception": "[##]",
+        "image": "/images/17-group-dinner.jpg"
+      }
+    ],
+    "tone": "#8C7A66",
+    "images": {
+      "hero": "/images/09-evening-dining-room-lamps.jpg",
+      "card": "/images/09-evening-dining-room-lamps.jpg",
+      "interior": "/images/01-hero-dining-room-evening.jpg",
+      "dish": "/images/20-kitchen-plating.jpg",
+      "detail": "/images/12-wine-glass-napkin.jpg",
+      "gallery": [
+        "/images/15-celebration-table.jpg",
+        "/images/10-plated-dish.jpg",
+        "/images/21-wine-display.jpg",
+        "/images/11-table-setting.jpg"
+      ]
+    }
+  }
+]

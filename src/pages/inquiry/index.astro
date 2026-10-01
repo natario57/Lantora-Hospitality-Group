@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Wordmark from '../../components/Wordmark.astro';
+import Icon from '../../components/Icon.astro';
+import site from '../../data/site.json';
+import concepts from '../../data/concepts.json';
+
+const types = [
+  { value: 'Private Event', hint: 'Type of occasion, preferred date and approximate number of guests' },
+  { value: 'General Question', hint: 'How can we help?' },
+  { value: 'Press', hint: 'Publication, deadline and what you are working on' },
+  { value: 'Partnership', hint: 'Tell us about your idea' },
+];
+---
+<Base title="Inquire" bare description={`Make an inquiry with ${site.name}.`}>
+  <div class="inq">
+    <aside class="on-dark inq-side" aria-label={site.name}>
+      <Photo src="/images/11-table-setting.jpg" tone="#4A3F37" class="dim inq-bg" />
+      <Wordmark />
+      <div class="stack" style="position: relative; gap: 28px">
+        <span class="eyebrow">Inquiries</span>
+        <h1 class="serif" style="font-size: clamp(44px, 5.6vw, 80px); line-height: .98; letter-spacing: -.025em">Let's Create Something <em>Memorable.</em></h1>
+        <div class="stack" style="gap: 6px; font-size: 15px; line-height: 1.6; color: rgba(250,247,242,.85); padding-top: 24px; border-top: 1px solid rgba(250,247,242,.25)">
+          <span>Prefer email? {site.email}</span>
+          <span>{site.phone}</span>
+        </div>
+      </div>
+    </aside>
+    <div class="inq-main">
+      <div style="display: flex; justify-content: flex-end">
+        <a class="ulink" href="/" style="font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; display: inline-flex; align-items: center; gap: 10px; min-height: 44px">Back to site <Icon name="back" /></a>
+      </div>
+      <form class="form" style="gap: 44px" name="inquiry" method="POST" action="/inquiry/thanks/" data-netlify="true" netlify-honeypot="bot-field" aria-labelledby="inq-h" data-inquiry>
+        <input type="hidden" name="form-name" value="inquiry" />
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="stack" style="gap: 18px">
+          <h2 id="inq-h" class="serif" style="font-size: clamp(38px, 3.6vw, 52px); line-height: 1.05">Make an <em>inquiry.</em></h2>
+          <p class="body-sm" style="max-width: 520px">Have an event, inquiry, or question? Get in touch with the {site.monogram} team.</p>
+        </div>
+        <fieldset class="pills">
+          <legend>I'm inquiring about</legend>
+          {types.map((t, k) => (
+            <label class="pill"><input type="radio" name="inquiry_type" value={t.value} data-hint={t.hint} checked={k === 0} /><span>{t.value}</span></label>
+          ))}
+        </fieldset>
+        <div class="field">
+          <label for="q-concept">Restaurant (optional)</label>
+          <select id="q-concept" name="restaurant" class="select">
+            <option value="">Any / not sure</option>
+            {concepts.map((c) => <option value={c.name}>{c.name}</option>)}
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="q-first">First Name</label><input id="q-first" name="first_name" type="text" autocomplete="given-name" required /></div>
+          <div class="field"><label for="q-last">Last Name</label><input id="q-last" name="last_name" type="text" autocomplete="family-name" required /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" /></div>
+        </div>
+        <div class="field"><label for="q-msg">Message / Description</label><textarea id="q-msg" name="message" rows="5" placeholder={types[0].hint} required></textarea></div>
+        <div class="form-foot" style="padding-top: 8px">
+          <span class="note" style="max-width: 320px">Your inquiry goes directly to the {site.monogram} inbox. We never share your details.</span>
+          <button type="submit" class="btn btn-dark">Send Inquiry <span class="arrow">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</Base>
+
+<script>
+  // Preselect the inquiry type from ?type= and keep the message hint in sync
+  const form = document.querySelector<HTMLFormElement>('[data-inquiry]');
+  if (form) {
+    const msg = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]')!;
+    const radios = [...form.querySelectorAll<HTMLInputElement>('input[name="inquiry_type"]')];
+    const sync = () => { const r = radios.find((x) => x.checked); if (r) msg.placeholder = r.dataset.hint ?? ''; };
+    radios.forEach((r) => r.addEventListener('change', sync));
+    const want = new URLSearchParams(location.search).get('type');
+    const match = want && radios.find((r) => r.value.toLowerCase().startsWith(want.toLowerCase()));
+    if (match) match.checked = true;
+    sync();
+  }
+</script>
+
+<style is:global>
+  .inq { display: grid; grid-template-columns: 5fr 7fr; min-height: 100vh; }
+  .inq-side { position: relative; color: var(--ivory); padding: 40px 56px 56px; display: flex; flex-direction: column; justify-content: space-between; gap: 80px; }
+  .inq-side .wordmark { position: relative; z-index: 1; }
+  .inq-bg { position: absolute !important; inset: 0; }
+  .inq-main { padding: 40px 88px 80px; display: flex; flex-direction: column; gap: 56px; }
+  .select { width: 100%; border: 0; border-bottom: 1px solid var(--field); background: transparent; padding: 8px 0 12px; font: 400 17px var(--sans); color: var(--black); border-radius: 0; }
+  .select:focus { outline: none; border-bottom-color: var(--black); box-shadow: 0 1px 0 var(--black); }
+  @media (max-width: 1000px) {
+    .inq { grid-template-columns: minmax(0, 1fr); }
+    .inq-side { min-height: 520px; padding: 24px 20px 40px; }
+    .inq-main { padding: 24px var(--gutter) 80px; gap: 32px; }
+  }
+</style>

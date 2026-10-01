@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import site from '../data/site.json';
+
+const values = [
+  { n: 'i.', title: 'Thoughtful Concepts', image: '/images/10-plated-dish.jpg', text: 'Each place begins with a clear idea — a point of view on food, room and ritual.', tone: '#C9B69C' },
+  { n: 'ii.', title: 'Beautiful Spaces', image: '/images/08-dining-room-city-view.jpg', text: 'Rooms designed to feel warm and considered, where guests want to linger.', tone: '#BFAA8E' },
+  { n: 'iii.', title: 'Memorable Moments', image: '/images/16-friends-toasting.jpg', text: 'The welcome, the table, the conversation that runs long — the moments that bring people back.', tone: '#D6C6AE' },
+];
+const leaders = [
+  { name: '[Full Name]', title: '[Title]', image: '/images/22-portrait-chef.jpg', tone: '#B9A58A' },
+  { name: '[Full Name]', title: '[Title]', image: '/images/23-portrait-restaurateur.jpg', tone: '#CDBBA2' },
+];
+---
+<Base title="About" current="about" description={`The story and people behind ${site.name}.`}>
+  <section aria-labelledby="ab-h" class="wrap stack ab-head" style="gap: 40px">
+    <span class="eyebrow">About {site.name}</span>
+    <h1 id="ab-h" class="serif display">More Than Dining.<br /><em class="ab-indent">It's Hospitality.</em></h1>
+  </section>
+
+  <section aria-label="Opening image" class="ab-open">
+    <Photo src="/images/01-hero-dining-room-evening.jpg" tone="#A8937A" />
+    <div class="stack ab-open-side" style="justify-content: flex-end; gap: 24px">
+      <Photo src="/images/20-kitchen-plating.jpg" tone="#D6C6AE" style="height: 420px" />
+      <p class="serif" style="font-size: 26px; line-height: 1.35; font-style: italic; color: var(--charcoal)">Every detail, considered.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="story-h" class="wrap grid12 split" style="padding-top: 170px; padding-bottom: 170px">
+    <div class="stack g24 split-l"><span class="eyebrow">01 — Our Story</span><h2 id="story-h" class="serif" style="font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: -.02em">Where it <em>began.</em></h2></div>
+    <div class="stack split-r" style="gap: 26px">
+      <p class="serif" style="font-size: clamp(26px, 2.4vw, 34px); line-height: 1.35">{site.name} creates distinctive hospitality experiences through thoughtful concepts, beautiful spaces, exceptional food and memorable moments.</p>
+      <p class="body">[Founding story, paragraph one — who started {site.monogram}, when, and why.]</p>
+      <p class="body">[Paragraph two — how the group has grown and what connects every restaurant.]</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="val-h" class="wrap bg-cream stack g72" style="padding-top: 150px; padding-bottom: 160px">
+    <div class="stack g24"><span class="eyebrow">02 — What We Believe</span><h2 id="val-h" class="serif h3">The {site.monogram} <em>approach.</em></h2></div>
+    <div class="cols-3">
+      {values.map((v) => (
+        <div class="stack g24">
+          <Photo src={v.image} tone={v.tone} style="height: 460px" />
+          <span class="numeral">{v.n}</span>
+          <h3 class="serif h5">{v.title}</h3>
+          <p style="font-size: 17px; line-height: 1.7; color: var(--charcoal)">{v.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="lead-h" class="wrap grid12 split" style="padding-top: 170px; padding-bottom: 170px; align-items: start">
+    <div class="stack g24 split-l"><span class="eyebrow">03 — Leadership</span><h2 id="lead-h" class="serif" style="font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: -.02em">The people <em>behind it.</em></h2></div>
+    <div class="cols-2 leaders">
+      {leaders.map((l) => (
+        <div class="stack" style="gap: 16px">
+          <Photo src={l.image} tone={l.tone} alt={l.name} style="height: 520px" />
+          <h3 class="serif" style="font-size: 32px">{l.name}</h3>
+          <span class="eyebrow sm">{l.title}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-label="Next steps" class="next-steps">
+    <a href="/concepts/" class="row-link"><span class="serif">Explore our concepts</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="/contact/" class="row-link"><span class="serif">Work with us · <em>Careers</em></span><span class="arrow" aria-hidden="true">→</span></a>
+  </section>
+</Base>
+
+<style is:global>
+  .ab-head { padding-top: 130px; padding-bottom: 100px; }
+  .ab-indent { padding-left: 18%; }
+  .ab-open { padding: 0 var(--edge); display: grid; grid-template-columns: 2fr 1fr; gap: 24px; height: 760px; }
+  .ab-open-side { padding: 0 40px 0 16px; }
+  .split-l { grid-column: span 4; }
+  .split-r { grid-column: 6 / span 6; }
+  .leaders { grid-column: 6 / span 7; }
+  .leaders > div:nth-child(2) { padding-top: 80px; }
+  .next-steps { margin: 0 var(--gutter) 160px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--black); }
+  .next-steps a { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 56px 48px 56px 0; text-decoration: none; color: var(--black); }
+  .next-steps a + a { padding: 56px 0 56px 48px; border-left: 1px solid var(--sand); }
+  .next-steps .serif { font-size: clamp(32px, 3.6vw, 52px); }
+  .next-steps .arrow { font-size: 28px; }
+  @media (max-width: 1100px) {
+    .ab-indent { padding-left: 0; }
+    .ab-open { grid-template-columns: minmax(0, 1fr); height: auto; }
+    .ab-open > .photo { height: 560px; }
+    .ab-open-side { padding: 0; }
+    .ab-open-side .photo { display: none; }
+    .split-l, .split-r, .leaders { grid-column: 1 / span 12; }
+    .split-r, .leaders { margin-top: 48px; }
+    .next-steps { grid-template-columns: minmax(0, 1fr); }
+    .next-steps a, .next-steps a + a { padding: 40px 0; border-left: 0; }
+    .next-steps a + a { border-top: 1px solid var(--sand); }
+  }
+  @media (max-width: 720px) {
+    .ab-head { padding-top: 72px; padding-bottom: 56px; }
+    .ab-open > .photo { height: 420px; }
+    .split-r, .leaders { margin-top: 0; }
+    .leaders > div:nth-child(2) { padding-top: 0; }
+    .leaders .photo { height: 420px !important; }
+    .next-steps { margin-bottom: 96px; }
+  }
+</style>
